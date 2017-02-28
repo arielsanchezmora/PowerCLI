@@ -1,0 +1,15 @@
+# http://learning-in-it.blogspot.com/2017/02/powershell-and-powercli-scripted.html
+
+Set-ExecutionPolicy Bypass -force
+mkdir $env:userprofile\Documents\WindowsPowerShell
+mkdir "C:\PowerCLI codes"
+$fixPS = @"
+Set-Location "C:\PowerCLI codes"
+if (`$psISE)
+{
+Clear-Host
+Write-Host 'You can do this!'
+}
+"@
+$fixPS | Out-File -FilePath $env:userprofile\Documents\WindowsPowerShell\profile.ps1 -Encoding ASCII
+
